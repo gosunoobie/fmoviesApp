@@ -1,3 +1,3 @@
 # fmoviesApp
 clone of fmovies.wtf 
-currently working on frontend
+currently working on it
