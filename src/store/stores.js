@@ -64,6 +64,15 @@
     'TV Show',
     'War',
     'Western'] 
+
+export  const slides = [
+  'https://www.hdwallpapers.in/download/zoe_kravitz_colin_farrell_paul_dano_robert_pattinson_4k_hd_the_batman-HD.jpg',
+  'https://www.hdwallpapers.in/download/ant_man_black_widow_bruce_banner_captain_america_captain_marvel_carol_danvers_4k_hd_avengers_endgame-HD.jpg',
+'https://www.hdwallpapers.in/download/spider_man_art_4k_hd_spider_man_into_the_spider_verse-HD.jpg',
+'https://www.hdwallpapers.in/download/red_blue_spiderman_on_glass_door_4k_hd_spiderman-HD.jpg'
+
+];
+
   export const screenSize = writable(window.innerWidth);
   
  export let breakPoints = {
