@@ -1,5 +1,4 @@
-
-  <script>
+<script>
   import { screenSize,breakPoints,genreArray,countryArray } from "../store/stores";
   import MenuItems from "./MenuItems.svelte";
 

@@ -3,6 +3,7 @@
   import NavBar from './components/NavBar.svelte';
   import { screenSize } from './store/stores';
   import Carousel from './components/Carousel.svelte'
+  import Recommendations from './components/Recommendations.svelte';
   function handleResize() {
     screenSize.set(window.innerWidth);
   }
@@ -20,3 +21,4 @@
 
 <NavBar/>
 <Carousel/>
+<Recommendations/>

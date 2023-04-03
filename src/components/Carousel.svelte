@@ -94,5 +94,11 @@
       opacity: 1;
     }
 
-
+    @media only screen and (max-width:650px){
+      .glide__bullet{
+        width: 8px;
+      height: 8px;
+      margin: 0 5px;
+      }
+    }
   </style>

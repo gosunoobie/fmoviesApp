@@ -1,10 +1,9 @@
 
 <script>
     export let slideImg;
-    let someValue= 100;
 </script>
 
-<li class="glide__slide" style="background-image: radial-gradient(circle, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.95) 100%),url({slideImg})">
+<li class="glide__slide" style="background-image: radial-gradient(ellipse at center, rgba(17,17,17,0.125) 0%, rgba(17,17,17,0.75) 100%), linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0) 50%, rgba(17,17,17,0.95) 100%), url({slideImg})">
         
     <aside class="glide-info-container">
         <h2 class="glide-title">The Batman</h2>
@@ -253,6 +252,8 @@ margin-right: 2px;
 .glide-title{
    font-size: 1.875rem
 }
+
+
 }
 
     </style>
