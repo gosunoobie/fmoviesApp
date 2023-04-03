@@ -31,8 +31,8 @@
 
     }
     .movie-poster{
-
-        width: 10.5rem;
+       
+        width: 10.75rem;
         height: 15.75rem;
         background-repeat: no-repeat;
         background-size: cover;
@@ -66,11 +66,11 @@
     .poster-bottom-container{
         color: #bbb;
         display: flex;
-        font-size: 13px;
+        font-size: 13.5px;
         font-weight: 500;
         justify-content: space-between;
     }
-
+    
     .poster-type{
         border: 1px solid #bbb;
         padding: 1px 3px;
@@ -101,12 +101,12 @@
     @media only screen and (max-width: 1275px ){
     .movie-poster{
         height: 18rem;
-   width: 11.5rem;
+   width: 11.75rem;
 }}
 
 @media only screen and (max-width: 1050px ){
     .movie-poster{
-       min-height: 30vw;
+       min-height: 28vw;
    min-width: 4vw;
    width: auto;
    height: auto;
@@ -117,7 +117,7 @@
     @media only screen and (max-width: 768px ){
     .movie-poster{
        min-height: 35vw;
-   min-width: 3.75vw;
+   min-width: 4vw;
 
 }
     }

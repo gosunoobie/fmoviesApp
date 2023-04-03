@@ -22,5 +22,7 @@
 
 <NavBar/>
 <Carousel/>
-<Recommendations/>
+<Recommendations type={'Recommended'}/>
+<MovieGrid/>
+<Recommendations type={'Latest Movies'}/>
 <MovieGrid/>

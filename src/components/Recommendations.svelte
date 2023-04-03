@@ -1,4 +1,5 @@
 <script>
+    export let type; 
     function changeBtn(event){
     const btnArray = event.target.parentElement.querySelectorAll(".recommendations-btn");
     btnArray.forEach(element => {
@@ -13,9 +14,9 @@
 
 <section class="recommendations-container">
     <h2 class="recommendations-title">
-        Recommended
+        {type}
     </h2>
-
+{#if type ==='Recommended'}
     <div class="recommendations-btn-container">
         <button class="recommendations-btn btn-active"
         on:click={changeBtn}>
@@ -30,6 +31,7 @@
     Trending
   </button>
     </div>
+    {/if}
 </section>
 
 
