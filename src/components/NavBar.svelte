@@ -3,7 +3,7 @@
   import { screenSize,breakPoints,genreArray,countryArray } from "../store/stores";
   import MenuItems from "./MenuItems.svelte";
 
-  let isShowSideMenu = true;
+  let isShowSideMenu = false;
   let isShowGenreMenu = false;
   let isShowCountryMenu = false;
   let isHoverEnabled;
@@ -182,6 +182,7 @@
 <style>
 
     .nav-container{
+        position: absolute;
         background: #090909;
         height: 80px;
         display: flex;
@@ -189,6 +190,10 @@
         justify-content: space-between;
        /* padding: 0 1.75rem;    */
          padding: 0 2rem;
+         background: none;
+         width: 100vw;
+         z-index: 10;
+         
          
     }
 

@@ -18,5 +18,5 @@
   
 </script>
 
-<!-- <NavBar/> -->
+<NavBar/>
 <Carousel/>
