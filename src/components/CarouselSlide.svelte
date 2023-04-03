@@ -1,6 +1,7 @@
 
 <script>
     export let slideImg;
+    let someValue= 100;
 </script>
 
 <li class="glide__slide" style="background-image: radial-gradient(circle, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.95) 100%),url({slideImg})">
@@ -122,6 +123,9 @@ color: white;
 
 .glide-options{
     margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
 }
 
 .glide-watch{
@@ -159,4 +163,96 @@ margin-right: 2px;
 .fa-movie-ratings{
     font-size: 11.75px;
 }
+
+
+@media only screen and (max-width: 1280px) {
+  .glide__slide{
+    height: 34.5rem;
+  }
+
+  .glide-movie-quality{
+    font-size: 10px;
+  }
+
+  .glide-ratings{
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .fa-movie-ratings{
+    font-size: 10px;
+  }
+
+  .glide-watchtime{
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .glide-tags{
+    font-size: 12px;
+    font-weight: 600;
+  }
+ .glide-info{
+    font-size: 13.5px;
+ }
+}
+
+@media only screen and (max-width: 768px){
+.glide__slide{
+    height: 30rem;
+}
+.glide-title{
+    font-size: 2rem;
+}
+.glide-movie-quality{
+    font-size: 10px;
+    padding: 4px 8px;
+}
+
+.glide-ratings{
+    font-size: 12px;
+}
+.glide-ratings{
+    font-size: 12px;
+}
+
+.glide-tags{
+    font-size: 11.75px;
+}
+
+.glide-add{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.glide-watch{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.glide-info{
+    font-size: 13.25px;
+}
+}
+
+@media only screen and (max-width:650px){
+.glide__slide{
+    height: 22.5rem;
+}
+
+
+
+.glide-info{
+    display: none;
+}
+
+.glide-options{
+    margin-top: 1rem;
+}
+
+.glide-title{
+   font-size: 1.875rem
+}
+}
+
     </style>
