@@ -46,7 +46,7 @@
 
     <style>
         .glide__slide{
-    width: 100vw;
+    min-width: 100vw;
     background-size: cover;
     height: 37rem;
     background-repeat: no-repeat;

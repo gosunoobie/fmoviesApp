@@ -59,7 +59,13 @@
 
 .hero-carousel{
   position: relative;
+  min-width: 100vw;
 }
+
+.glide{
+  min-width: 100vw;
+}
+
 
    .glide__bullets{
     position: absolute;

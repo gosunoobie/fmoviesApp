@@ -181,6 +181,7 @@
 <style>
 
     .nav-container{
+        /* position: fixed; */
         position: absolute;
         background: #090909;
         height: 80px;
@@ -192,9 +193,7 @@
          background: none;
          width: 100vw;
          z-index: 10;
-         
-         
-    }
+          }
 
        .nav-left-side{
         display: flex;

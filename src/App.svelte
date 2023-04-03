@@ -4,6 +4,7 @@
   import { screenSize } from './store/stores';
   import Carousel from './components/Carousel.svelte'
   import Recommendations from './components/Recommendations.svelte';
+  import MovieGrid from './components/MovieGrid.svelte';
   function handleResize() {
     screenSize.set(window.innerWidth);
   }
@@ -22,3 +23,4 @@
 <NavBar/>
 <Carousel/>
 <Recommendations/>
+<MovieGrid/>

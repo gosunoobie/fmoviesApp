@@ -6,3 +6,6 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
 
 }
 
+body{
+    overflow-x: hidden ;
+}
