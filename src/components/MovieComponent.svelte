@@ -3,9 +3,63 @@
 </script>
 
 <article class="movie-container">
+    <div class="movie-poster-container">
     <div class="movie-poster" style="background-image: url({poster})">
+        <i class="fa-solid fa-circle-play"></i>
+    </div>
+</div>
+ <aside class="movie-hover-details-container">
+    <h3 class="poster-title">
+        The Whale
+    </h3>
+    <div class="movie-features-container">
+        <p class="movie-features-ratings">
+            <i class="fa-solid fa-star"></i>
+            <span>7.80</span>
+        </p>
+
+        <p class="movie-features-date">
+            2023
+        </p>
+
+        <p class="movie-features-watchtime">
+            88 min
+        </p>
+
+        <button class="movie-quality">
+            HD
+        </button>
+      
+     
 
     </div>
+
+    <p class="movie-info">
+        A former minor-league basketball coach is ordered by the court to manage a team of players with intellectual disabilities. He soon realizes that despite his doubts, together, this team can...
+    </p>
+<div class="country-genre-container">
+    <aside>
+    <p>Country: </p> <span>United States</span>
+</aside>
+
+<aside>
+    <p>Genre: </p> <span>Drama, Comedy, Sport</span>
+</aside>
+    
+</div>
+   
+<div class="movie-bottom-container">
+    <button class="watch-now">
+        <i class="fa-solid fa-play"></i>
+<p>Watch Now</p>
+    </button>
+
+    <button class="like">
+        <i class="fa-regular fa-heart"></i>
+    </button>
+</div>
+ </aside>
+   
     <button class="movie-poster-quality">HD</button>
     <h3 class="poster-title">The Whale</h3>
     <aside class="poster-bottom-container">
@@ -23,15 +77,169 @@
 </article>
 
 <style>
+
+.movie-hover-details-container{
+    display: none;
+}
+
+
+  .movie-container:hover  .movie-hover-details-container{
+        display: block;
+        position: absolute;
+        min-width: 16rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        background: rgba(33,37,41,255);
+        z-index: 11;
+        transform: translateX(2.5%);
+        bottom: 0%;
+  left: auto;
+  left: 100%;
+    }
+
+    
+
+.movie-features-container{
+    display: flex;
+    align-items: center;
+    color: #bbb;
+    justify-content: space-between;
+    padding-top: 4px; 
+ }
+
+.movie-features-ratings{
+display: flex;
+align-items: center;
+gap: 3px;
+font-size: 12px;
+font-weight: 600;
+}
+
+.movie-features-ratings span{
+   opacity: 0.75; 
+}
+
+.movie-features-ratings i{
+    font-size: 10px;
+    color: #00acc1;
+
+} 
+
+.movie-features-date{
+    font-size: 12px;
+    opacity: 0.75; 
+}
+
+.movie-features-watchtime{
+    font-size: 12px;
+    opacity: 0.75; 
+}
+
+.movie-quality{
+font-size: 11px;
+font-weight: 600;
+padding: 1px 4px;
+outline: none;
+border: none;
+border-radius: 3px;
+background: #00acc1; 
+
+}
+
+.movie-info{
+        color: #bbb;
+        font-size: 11.75px;
+        font-weight: 400;
+      padding: 14px 0;
+      opacity: 0.75; 
+    }
+.country-genre-container{
+font-size: 10px;
+color: #bbb;
+font-weight: 600;
+margin-bottom: 14px;
+}
+
+.country-genre-container aside {
+    margin-bottom: 6px;
+    display: flex;
+    gap: 2px;
+
+}
+
+.country-genre-container aside p{
+    opacity: 0.75;
+}
+
+.country-genre-container p span{
+    opacity: 1;
+}
+
+
+.movie-bottom-container{
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+
+    
+    
+}
+
+.watch-now{
+    color: #eee;
+    border: none;
+    outline: none;
+    background: rgba(51,57,64,255);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+justify-content: center;
+    flex-grow: 1;
+    border-radius: 3px;
+}
+
+.watch-now p{
+    font-weight: 500;
+    font-size: 14px;
+     opacity: 0.85;
+}
+.watch-now i{
+
+    color: #00acc1;
+}
+
+.watch-now:hover{
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.like:hover{
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.like{
+    color: white;
+    background: #d63558;
+    border: none;
+    padding: 7px 12px;
+    font-size: 15px;
+    border-radius: 4px;
+   
+}
     .movie-container{
       display: flex;
       flex-direction: column;
       position: relative;
+      cursor: pointer;
       /* max-width: 10.25rem; */
 
     }
+
+  
+
     .movie-poster{
-       
+       position: relative;
         width: 10.75rem;
         height: 15.75rem;
         background-repeat: no-repeat;
@@ -40,6 +248,35 @@
         border-radius: 4px;
 
     }
+  .fa-circle-play{
+    display: none;}
+
+    .movie-container:hover .fa-circle-play{
+    position: absolute;
+    display: inline-block;
+    font-size: 3.25rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #00acc1;
+    background: white;
+    border-radius: 50%;
+    opacity: 1;
+    z-index: 10;
+    }
+
+
+    .movie-container:hover .movie-poster::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height:100%;
+    background: #111;
+    opacity: 0.325;
+    z-index: 5;
+
+        
+}
 
     .movie-poster-quality{
      position: absolute;
@@ -52,6 +289,7 @@
      font-size: 13px;
      font-weight: 600;
      pointer-events: none;
+     z-index: 10;
 
     }
 

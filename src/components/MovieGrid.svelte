@@ -52,7 +52,7 @@
 
     @media only screen and (max-width: 1325px ){
     .movie-grid-container{
-        width: 1250px;
+        width: 1160px;
   
 
 }

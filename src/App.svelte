@@ -26,3 +26,5 @@
 <MovieGrid/>
 <Recommendations type={'Latest Movies'}/>
 <MovieGrid/>
+<Recommendations type={'Highly Rated'}/>
+<MovieGrid/>
