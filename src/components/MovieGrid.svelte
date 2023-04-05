@@ -1,24 +1,20 @@
 <script>
   import { slides } from "../store/stores";
 
-
+  export let array;
   import MovieComponent from "./MovieComponent.svelte";
 
 </script>
 <section class="movie-grid-container">
-   {#each slides as poster}
-    <MovieComponent poster={poster}/>
-    {/each}
 
-    {#each slides as poster}
-    <MovieComponent poster={poster}/>
-    {/each}
-    {#each slides as poster}
-    <MovieComponent poster={poster}/>
+    {#each array as item}
+    <MovieComponent movie= {item}/>
     {/each}
 </section>
 
 <style>
+
+    
     .movie-grid-container{
         display: grid;
         /* padding: 0 2.25vw; */
@@ -29,6 +25,8 @@
        width: 1450px;
        margin: 0 auto;
     }
+
+
 
     @media only screen and (max-width: 1520px ){
     .movie-grid-container{

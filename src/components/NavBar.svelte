@@ -389,6 +389,7 @@ color: #343a40;
         border-radius: 4px;
         box-shadow: 0 0 11px #111;
         left: 1rem;
+        z-index: 14;
         
     }
 
@@ -427,7 +428,7 @@ color: #343a40;
     position: relative;
     font-size: 12px;
     font-weight: 900;
-    z-index: 5;
+    z-index: 15;
     color: #090909;
     margin-right: 8px;
     
@@ -480,6 +481,8 @@ color: #343a40;
   background: #111;
   border-radius: 8px;
   margin-top: 0.625rem;
+  position: relative;
+  z-index: 14;
 }
 
  .expanded-items{

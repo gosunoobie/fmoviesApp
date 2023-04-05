@@ -1,12 +1,14 @@
 
 <script>
-    export let slideImg;
+    export let item;
+    let imageUrl =`https://image.tmdb.org/t/p/w500${item.poster_path}`
+    let title = item.title;
 </script>
 
-<li class="glide__slide" style="background-image: radial-gradient(ellipse at center, rgba(17,17,17,0.125) 0%, rgba(17,17,17,0.75) 100%), linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0) 50%, rgba(17,17,17,0.95) 100%), url({slideImg})">
+<li class="glide__slide" style="background-image: radial-gradient(ellipse at center, rgba(17,17,17,0.125) 0%, rgba(17,17,17,0.75) 100%), linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0) 50%, rgba(17,17,17,0.95) 100%), url({item})">
         
     <aside class="glide-info-container">
-        <h2 class="glide-title">The Batman</h2>
+        <h2 class="glide-title">{title}</h2>
         <div class="glide-details">
             <button class="glide-movie-quality">hd</button>
             <div class="glide-ratings">

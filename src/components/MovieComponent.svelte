@@ -1,29 +1,51 @@
 <script>
-    export let poster;
+    export let movie;
+    const apiKey = 'c5991897d88bb42408fd5d87948090aa';
+    let movieId = movie.id;
+     
+const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
+
+fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+watchTime = data.runtime;
+  })
+  .catch((error) => {
+    console.error("Error fetching movie details: ", error);
+  });
+
+    // const imageUrl = poster ? `https://image.tmdb.org/t/p/w500${poster}`.replace("localhost:5173", "") : "";
+    let imageUrl =`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+    let title = movie.title;
+    let overview = movie.overview;
+    let ratings = movie.vote_average + '0';
+    let releaseDate = movie.release_date.split('-')[0];
+    let watchTime = '120 min';
+
 </script>
 
 <article class="movie-container">
     <div class="movie-poster-container">
-    <div class="movie-poster" style="background-image: url({poster})">
+    <div class="movie-poster" style="background-image: url({imageUrl})">
         <i class="fa-solid fa-circle-play"></i>
     </div>
 </div>
  <aside class="movie-hover-details-container">
     <h3 class="poster-title">
-        The Whale
+        {title}
     </h3>
     <div class="movie-features-container">
         <p class="movie-features-ratings">
             <i class="fa-solid fa-star"></i>
-            <span>7.80</span>
+            <span>{ratings}</span>
         </p>
 
         <p class="movie-features-date">
-            2023
+            {releaseDate}
         </p>
 
         <p class="movie-features-watchtime">
-            88 min
+           {`${watchTime} min`}
         </p>
 
         <button class="movie-quality">
@@ -35,7 +57,7 @@
     </div>
 
     <p class="movie-info">
-        A former minor-league basketball coach is ordered by the court to manage a team of players with intellectual disabilities. He soon realizes that despite his doubts, together, this team can...
+      {overview}
     </p>
 <div class="country-genre-container">
     <aside>
@@ -61,13 +83,13 @@
  </aside>
    
     <button class="movie-poster-quality">HD</button>
-    <h3 class="poster-title">The Whale</h3>
+    <h3 class="poster-title">{title}</h3>
     <aside class="poster-bottom-container">
      <p class="poster-release-date">
-     2022
+     {releaseDate}
      </p>
      <p class="poster-watch-time">
-        117 min
+        {`${watchTime} min`}
      </p>
 
      <p class="poster-type">
@@ -152,7 +174,10 @@ background: #00acc1;
         font-weight: 400;
       padding: 14px 0;
       opacity: 0.75; 
+      -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
     }
+
 .country-genre-container{
 font-size: 10px;
 color: #bbb;

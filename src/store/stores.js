@@ -74,6 +74,10 @@ export  const slides = [
 ];
 
   export const screenSize = writable(window.innerWidth);
+  export let fetchArray = writable([])
+  export let topArray = writable([])
+  export let discoverArray = writable([])
+
   
  export let breakPoints = {
         Xs : 0,
@@ -83,6 +87,34 @@ export  const slides = [
         Xl :1280
 }
 
+
+export let randomArray = writable([]);
+
+
+export function SetRandomArray(data){
+  const randomItems = [];
+while (randomItems.length < 4) {
+  const randomIndex = Math.floor(Math.random() * data.length);
+  const randomItem = data[randomIndex];
+  if (!randomItems.includes(randomItem)) {
+    randomItems.push(randomItem);
+  }
+}
+
+}
+
+export function SetFetchArray(data){
+fetchArray.set(data);
+}
+
+export function SetTopArray(data){
+  topArray.set(data);
+  }
+
+  export function SetDiscoverArray(data){
+    discoverArray.set(data);
+  }
+  
 
     //   screenSizeType.set(window.innerWidth <= breakPoints.breakpointSm ? 'small' : window.innerWidth <= breakPoints.Md ?  'medium': window.innerWidth >= breakPoints.Xl ? 'veryLarge': 'large' );
 

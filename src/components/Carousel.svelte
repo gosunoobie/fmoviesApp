@@ -2,10 +2,10 @@
     import { onMount } from 'svelte';
     import Glide from '@glidejs/glide';
   import CarouselSlide from './CarouselSlide.svelte';
-  import { slides } from '../store/stores';
+  import { randomArray, slides } from '../store/stores';
   
     let glide;
-  
+  export let array;
 
 
   
@@ -30,6 +30,13 @@
 
       glide.mount();
     });
+
+
+    
+
+
+
+
   </script>
   
   <section class="hero-carousel">
@@ -37,8 +44,8 @@
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        {#each slides as slide}
-      <CarouselSlide slideImg={slide}/>
+        {#each slides as item}
+      <CarouselSlide item={item}/>
         {/each}
       </ul>
     </div>
