@@ -1,11 +1,21 @@
 
 <script>
+
+
     export let item;
-    let imageUrl =`https://image.tmdb.org/t/p/w500${item.poster_path}`
-    let title = item.title;
+ console.log('batman',item)
+    let imageUrl = item.image;
+   let title = item.original_title;
+    let overview = item.overview;
+    let ratings = item.vote_average + '0';
+    let watchTime = item.runtime;
+
+
+
+
 </script>
 
-<li class="glide__slide" style="background-image: radial-gradient(ellipse at center, rgba(17,17,17,0.125) 0%, rgba(17,17,17,0.75) 100%), linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0) 50%, rgba(17,17,17,0.95) 100%), url({item})">
+<li class="glide__slide" style="background-image: radial-gradient(ellipse at center, rgba(17,17,17,0.125) 0%, rgba(17,17,17,0.75) 100%), linear-gradient(180deg, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0) 50%, rgba(17,17,17,0.95) 100%), url({imageUrl})">
         
     <aside class="glide-info-container">
         <h2 class="glide-title">{title}</h2>
@@ -13,10 +23,10 @@
             <button class="glide-movie-quality">hd</button>
             <div class="glide-ratings">
                 <i class="fa-solid fa-star fa-movie-ratings"></i>
-                7.80</div>
-            <div class="glide-watchtime">192 min</div>
+                {ratings}</div>
+            <div class="glide-watchtime"> {`${watchTime} min`}</div>
             <div class="glide-tags-container">
-                <div class="glide-tags">
+                <!-- <div class="glide-tags">
                     Adventure
                 </div>
                 <div class="glide-tags">
@@ -24,12 +34,17 @@
                 </div>
            <div class="glide-tags">
             Fantasy
+           </div> -->
+           {#each item.genres as genre}
+           <div class="glide-tags">
+           {genre.name}
            </div>
+       {/each}
             </div>
         </div>
 
         <p class="glide-info">
-            Jake sully lives with his newfound family formed on the extrasolar moon Pandara.     Jake sully lives with his newfound family formed on the extrasolar moon Pandara.     Jake sully lives with his newfound family formed on the extrasolar moon Pandara.
+   {overview}
         </p>
 
         <div class="glide-options">
@@ -52,7 +67,7 @@
     background-size: cover;
     height: 37rem;
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: center;
     width: 100vw !important;
         margin: 0 !important;
         display: flex;
@@ -97,6 +112,9 @@ border-radius: 3px;
     color: #e9ecef;
     opacity: 0.725;
     margin: 1rem 0 2rem 0;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 }
 .glide-ratings{

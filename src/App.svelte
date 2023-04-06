@@ -12,7 +12,7 @@
   const discoverUrl =`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
   const trendingMovieUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
  const popularTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`
-  
+  const batmanUrl =`https://api.themoviedb.org/3/movie/414906?api_key=${apiKey}&language=en-US`
 async function fetchAllItems(apiKey,currentUrl,pageCount) {
   const totalPages = pageCount || 1;
   const responses = [];
@@ -34,11 +34,18 @@ async function fetchAllItems(apiKey,currentUrl,pageCount) {
   return items;
 }
 
+
+async function fetchItemById(currentUrl){
+  const response = await fetch(currentUrl);
+  const data = await response.json();
+  console.log(data)
+  return data;
+}
 // Call the function inside an async function
 (async function () {
   const items = await fetchAllItems(apiKey,topRatedUrl,2); // Fetch 24 items from first two pages
   SetTopArray(items);
-  SetRandomArray(items);
+
 })();
 
 (async function () {
@@ -51,6 +58,13 @@ async function fetchAllItems(apiKey,currentUrl,pageCount) {
   const items = await fetchAllItems(apiKey,trendingMovieUrl,2); 
   SetDiscoverArray(items);
 })();
+
+
+(async function () {
+  const items = await fetchItemById(batmanUrl); 
+  SetRandomArray(items);
+})();
+
 
   function handleResize() {
     screenSize.set(window.innerWidth);
@@ -74,7 +88,7 @@ async function fetchAllItems(apiKey,currentUrl,pageCount) {
 
   <p>Loading...</p>
 {/if} -->
-<Carousel array={$fetchArray}/>
+<Carousel array={$randomArray}/>
 
 <Recommendations type={'Recommended'}/>
 <MovieGrid array={$fetchArray}/>

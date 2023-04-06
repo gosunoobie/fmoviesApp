@@ -314,7 +314,7 @@ justify-content: center;
      font-size: 13px;
      font-weight: 600;
      pointer-events: none;
-     z-index: 10;
+     z-index: 3;
 
     }
 

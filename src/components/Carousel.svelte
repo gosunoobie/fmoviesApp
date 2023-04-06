@@ -5,7 +5,7 @@
   import { randomArray, slides } from '../store/stores';
   
     let glide;
-  export let array;
+  export let array = slides;
 
 
   
@@ -45,7 +45,7 @@
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         {#each slides as item}
-      <CarouselSlide item={item}/>
+      <CarouselSlide item={item}  />
         {/each}
       </ul>
     </div>
