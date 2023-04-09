@@ -3,10 +3,10 @@
 
   export let currentUrl;
   const pages = 2;
-
+  export let mediaType;
   import MovieComponent from "./MovieComponent.svelte";
 
-let promise = fetchAllItems(apiKey,currentUrl,2);
+$: promise = fetchAllItems(apiKey,currentUrl,2);
 
 
 </script>
@@ -17,7 +17,7 @@ let promise = fetchAllItems(apiKey,currentUrl,2);
 <section class="movie-grid-container">
 
     {#each items as item}
-    <MovieComponent movie= {item}/>
+    <MovieComponent media= {item} mediaType={mediaType}/>
     {/each}
 </section>
 

@@ -8,16 +8,26 @@
   export const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
   export const discoverUrl =`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
   export const trendingMovieUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
-  export const trendingTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`;
+  export const topRatedTvShowsUrl = `https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}`;
   
  export const popularTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`
   export const batmanUrl =`https://api.themoviedb.org/3/movie/414906?api_key=${apiKey}&language=en-US`
 
 
 
+  export const displayUrl = writable(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`);
 
+  export const wirtableMediaType = writable('movie');
+  export const setChangingUrl = (url)=>{
+     
+    displayUrl.set(url);
+  }
 
+  export const setMediaType = (type)=>{
+    wirtableMediaType.set(type)
+  }
 
+  
  export  async function fetchAllItems(apiKey,currentUrl,pageCount) {
     const totalPages = pageCount || 1;
     const responses = [];
@@ -40,10 +50,10 @@
   }
   
   
-  async function fetchItemById(currentUrl){
-    const response = await fetch(currentUrl);
+  export async function fetchItemById(mediaType,mediaId){
+    const url = `https://api.themoviedb.org/3/${mediaType}/${mediaId}?api_key=${apiKey}&language=en-US`;
+    const response = await fetch(url);
     const data = await response.json();
-    console.log(data)
     return data;
   }
   
@@ -139,7 +149,7 @@ export  const slides = [
   ],
     "release_date": "2023-03-22",
     "title": "John Wick: Chapter 4",
-    "vote_average": 8,   
+    "vote_average": 8.10,   
     "runtime": 170,
    
   },
@@ -186,7 +196,7 @@ export  const slides = [
 "overview": "High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.",
 "release_date": "2016-08-26",
 "runtime": 106,
-"vote_average": 8.52,
+"vote_average": 8.5,
 }
 ,
 
@@ -244,7 +254,7 @@ export  const slides = [
 ];
 
   export const screenSize = writable(window.innerWidth);
-
+  
   
  export let breakPoints = {
         Xs : 0,

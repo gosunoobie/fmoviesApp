@@ -1,7 +1,28 @@
 <script>
+  import { popularUrl, topRatedUrl,topRatedTvShowsUrl,displayUrl,setChangingUrl,wirtableMediaType,setMediaType } from "../store/stores";
+
     export let type; 
-    function changeBtn(event){
+    
+    function changeBtn(event,num){
     const btnArray = event.target.parentElement.querySelectorAll(".recommendations-btn");
+    if(num === 0)
+    {
+  setChangingUrl(popularUrl)
+  setMediaType("movie");
+  
+    }
+    if(num === 1)
+    {
+  setChangingUrl(topRatedTvShowsUrl)
+  setMediaType("tv");
+    }
+    else if(num === 2)
+    {
+  setChangingUrl(topRatedUrl)
+  setMediaType("movie");
+    }
+
+    console.log($displayUrl);
     btnArray.forEach(element => {
         
         if(element.classList.contains("btn-active"))
@@ -19,14 +40,14 @@
 {#if type ==='Recommended'}
     <div class="recommendations-btn-container">
         <button class="recommendations-btn btn-active"
-        on:click={changeBtn}>
+        on:click={(event)=>changeBtn(event,0)}>
             <i class="fa-sharp fa-solid fa-circle-play"></i>    Movies
         </button>
-     <button class="recommendations-btn"  on:click={changeBtn}>
+     <button class="recommendations-btn"  on:click={(event)=>changeBtn(event,1)} >
         <i class="fa-solid fa-list-ul"></i>
         TV Shows
      </button>
-  <button class="recommendations-btn"  on:click={changeBtn}>
+  <button class="recommendations-btn"  on:click={(event)=>changeBtn(event,2)}>
     <i class="fa-solid fa-arrow-trend-up"></i>
     Trending
   </button>

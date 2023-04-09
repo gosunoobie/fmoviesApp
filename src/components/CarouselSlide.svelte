@@ -3,7 +3,6 @@
 
 
     export let item;
- console.log('batman',item)
     let imageUrl = item.image;
    let title = item.original_title;
     let overview = item.overview;

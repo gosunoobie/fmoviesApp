@@ -1,7 +1,7 @@
  <script>
   import { onMount } from 'svelte';
   import NavBar from './components/NavBar.svelte';
-  import { screenSize,trendingMovieUrl,popularUrl,trendingTvShowsUrl,topRatedUrl} from './store/stores';
+  import { screenSize,trendingMovieUrl,popularUrl,topRatedTvShowsUrl,topRatedUrl,displayUrl,wirtableMediaType} from './store/stores';
   import Carousel from './components/Carousel.svelte'
   import Recommendations from './components/Recommendations.svelte';
   import MovieGrid from './components/MovieGrid.svelte';
@@ -25,6 +25,7 @@
 //   SetRandomArray(items);
 // })();
 
+$: changeUrl = $displayUrl; 
 
   function handleResize() {
     screenSize.set(window.innerWidth);
@@ -42,18 +43,11 @@
 </script>
 
 <NavBar/>
-<!-- {#if $randomArray.length > 0}
-  <Carousel/>
-{:else}
-
-  <p>Loading...</p>
-{/if} -->
 <Carousel/>
-
-<Recommendations type={'Recommended'}/>
-<MovieGrid  currentUrl={popularUrl}/>
-<Recommendations type={'Highly Rated'} />
-<MovieGrid  currentUrl={topRatedUrl}/> 
+<Recommendations type={'Recommended'} />
+<MovieGrid  currentUrl={$displayUrl} mediaType ={$wirtableMediaType} />
+<Recommendations type={'Highly Rated'}  />
+<MovieGrid  currentUrl={topRatedUrl} mediaType ={"movie"}/> 
 <Recommendations type={'Discover'}/>
-<MovieGrid  currentUrl={popularUrl}/>
+<MovieGrid  currentUrl={topRatedTvShowsUrl} mediaType ={"tv"}/>
 

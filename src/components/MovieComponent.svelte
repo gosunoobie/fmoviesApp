@@ -1,27 +1,89 @@
 <script>
-    export let movie;
+    export let media;
     const apiKey = 'c5991897d88bb42408fd5d87948090aa';
-    let movieId = movie.id;
-     
-// const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
+    export let mediaType ;
+    let mediaId = media.id;
+    let imageUrl =`https://image.tmdb.org/t/p/w500${media.poster_path}`
+    let title;
+    let overview = media.overview;
+    let ratings = media.vote_average + '0';
+    let watchTime = 'na';
+    let releaseDate; 
+    let genreArray = [
+        {
+            "id": 28,
+            "name": "Action"
+        },
+        {
+            "id": 53,
+            "name": "Thriller"
+        },
+        {
+            "id": 80,
+            "name": "Crime"
+        }
+    ];
+   
+    let originCountry;
 
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => {
-// watchTime = data.runtime;
-//   })
-//   .catch((error) => {
-//     console.error("Error fetching movie details: ", error);
-//   });
+const url = `https://api.themoviedb.org/3/${mediaType}/${mediaId}?api_key=${apiKey}&language=en-US`;
 
-    // const imageUrl = poster ? `https://image.tmdb.org/t/p/w500${poster}`.replace("localhost:5173", "") : "";
-    let imageUrl =`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-    let title = movie.title;
-    let overview = movie.overview;
-    let ratings = movie.vote_average + '0';
-    // let releaseDate = movie.release_date.split('-')[0];
-    let watchTime = '120 min';
+if(mediaType === "movie"){
+    title = media.title;
+    fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+watchTime = data.runtime;
+releaseDate = media.release_date.split('-')[0];
+genreArray = data.genres;
+if(genreArray.length >= 3)
+{    let tempGenres ;
+     tempGenres = genreArray.slice(0, 3);
+     genreArray = tempGenres;
+    }
 
+    if(data.production_countries)
+originCountry = data.production_countries[0].name;
+ 
+})
+  .catch((error) => {
+
+    
+    // console.error("Error fetching movie details: ", error);
+  });
+ 
+}
+else{
+    fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    if(data.production_countries)
+    originCountry = data.production_countries[0].name;
+genreArray = data.genres;
+if(genreArray.length >= 3)
+{    let tempGenres ;
+     tempGenres = genreArray.slice(0, 3);
+     genreArray = tempGenres;
+
+    }
+
+
+
+ 
+})
+  .catch((error) => {
+
+    
+    console.error("Error fetching movie details: ", error);
+  });
+    releaseDate = media.first_air_date.split('-')[0];
+    title = media.name;
+    
+}
+
+
+
+   
 </script>
 
 <article class="movie-container">
@@ -41,7 +103,7 @@
         </p>
 
         <p class="movie-features-date">
-            <!-- {releaseDate} -->
+            {releaseDate}
         </p>
 
         <p class="movie-features-watchtime">
@@ -61,11 +123,13 @@
     </p>
 <div class="country-genre-container">
     <aside>
-    <p>Country: </p> <span>United States</span>
+    <p>Country: </p> <span>{originCountry}</span>
 </aside>
 
 <aside>
-    <p>Genre: </p> <span>Drama, Comedy, Sport</span>
+    <p>Genre: </p> <p>
+<span>{genreArray.map(item=>item.name).join(",")}</span>
+    </p>
 </aside>
     
 </div>
@@ -86,14 +150,14 @@
     <h3 class="poster-title">{title}</h3>
     <aside class="poster-bottom-container">
      <p class="poster-release-date">
-     <!-- {releaseDate} -->
+     {releaseDate}
      </p>
      <p class="poster-watch-time">
         {`${watchTime} min`}
      </p>
 
      <p class="poster-type">
-        Movie
+        {mediaType}
      </p>
     </aside>
 </article>
@@ -339,6 +403,7 @@ justify-content: center;
         padding: 1px 3px;
         font-size: 10px;
         border-radius: 3px;
+        text-transform: capitalize;
     }
 
     @media only screen and (max-width: 1520px ){
