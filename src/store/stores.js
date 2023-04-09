@@ -232,13 +232,13 @@ export function SetTopArray(data){
   topArray.set(data);
   }
 
+
+
+
+  
   export function SetDiscoverArray(data){
     discoverArray.set(data);
   }
   
 
-    //   screenSizeType.set(window.innerWidth <= breakPoints.breakpointSm ? 'small' : window.innerWidth <= breakPoints.Md ?  'medium': window.innerWidth >= breakPoints.Xl ? 'veryLarge': 'large' );
-
-
-//    $: console.log($screenSize);
 

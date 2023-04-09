@@ -5,7 +5,7 @@
   import { randomArray, slides } from '../store/stores';
   
     let glide;
-  export let array = slides;
+ 
 
 
   

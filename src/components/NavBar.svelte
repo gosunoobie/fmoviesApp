@@ -2,6 +2,7 @@
   import { screenSize,breakPoints,genreArray,countryArray } from "../store/stores";
   import MenuItems from "./MenuItems.svelte";
 
+
   let isShowSideMenu = false;
   let isShowGenreMenu = false;
   let isShowCountryMenu = false;

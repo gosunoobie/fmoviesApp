@@ -11,12 +11,17 @@
   const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
   const discoverUrl =`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
   const trendingMovieUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
+  const trendingTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`;
+  
  const popularTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`
   const batmanUrl =`https://api.themoviedb.org/3/movie/414906?api_key=${apiKey}&language=en-US`
+
+
+  
 async function fetchAllItems(apiKey,currentUrl,pageCount) {
   const totalPages = pageCount || 1;
   const responses = [];
-  
+ 
   
 
   // Make a request for each page of items
@@ -41,9 +46,11 @@ async function fetchItemById(currentUrl){
   console.log(data)
   return data;
 }
+
+
 // Call the function inside an async function
 (async function () {
-  const items = await fetchAllItems(apiKey,topRatedUrl,2); // Fetch 24 items from first two pages
+  const items = await fetchAllItems(apiKey,trendingTvShowsUrl,2); // Fetch 24 items from first two pages
   SetTopArray(items);
 
 })();

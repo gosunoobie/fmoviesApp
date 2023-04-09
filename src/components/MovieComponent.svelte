@@ -3,23 +3,23 @@
     const apiKey = 'c5991897d88bb42408fd5d87948090aa';
     let movieId = movie.id;
      
-const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
+// const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
 
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-watchTime = data.runtime;
-  })
-  .catch((error) => {
-    console.error("Error fetching movie details: ", error);
-  });
+// fetch(url)
+//   .then((response) => response.json())
+//   .then((data) => {
+// watchTime = data.runtime;
+//   })
+//   .catch((error) => {
+//     console.error("Error fetching movie details: ", error);
+//   });
 
     // const imageUrl = poster ? `https://image.tmdb.org/t/p/w500${poster}`.replace("localhost:5173", "") : "";
     let imageUrl =`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
     let title = movie.title;
     let overview = movie.overview;
     let ratings = movie.vote_average + '0';
-    let releaseDate = movie.release_date.split('-')[0];
+    // let releaseDate = movie.release_date.split('-')[0];
     let watchTime = '120 min';
 
 </script>
@@ -41,7 +41,7 @@ watchTime = data.runtime;
         </p>
 
         <p class="movie-features-date">
-            {releaseDate}
+            <!-- {releaseDate} -->
         </p>
 
         <p class="movie-features-watchtime">
@@ -86,7 +86,7 @@ watchTime = data.runtime;
     <h3 class="poster-title">{title}</h3>
     <aside class="poster-bottom-container">
      <p class="poster-release-date">
-     {releaseDate}
+     <!-- {releaseDate} -->
      </p>
      <p class="poster-watch-time">
         {`${watchTime} min`}
