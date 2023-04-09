@@ -1,7 +1,7 @@
  <script>
   import { onMount } from 'svelte';
   import NavBar from './components/NavBar.svelte';
-  import { screenSize, topArray,SetFetchArray,fetchArray,discoverArray,SetTopArray, SetDiscoverArray, SetRandomArray, randomArray,} from './store/stores';
+  import { screenSize, topArray,SetFetchArray,fetchArray,discoverArray,SetTopArray, SetDiscoverArray, SetRandomArray, randomArray, trendingMovieUrl,popularUrl,trendingTvShowsUrl,batmanUrl,apiKey,fetchAllItems} from './store/stores';
   import Carousel from './components/Carousel.svelte'
   import Recommendations from './components/Recommendations.svelte';
   import MovieGrid from './components/MovieGrid.svelte';
@@ -14,72 +14,23 @@
  //use debounce 
 
 
-  const apiKey = 'c5991897d88bb42408fd5d87948090aa';
- 
-  const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`;
-  const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
-  const discoverUrl =`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
-  const trendingMovieUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
-  const trendingTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`;
-  
- const popularTvShowsUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}`
-  const batmanUrl =`https://api.themoviedb.org/3/movie/414906?api_key=${apiKey}&language=en-US`
-
-
-
-async function fetchAllItems(apiKey,currentUrl,pageCount) {
-  const totalPages = pageCount || 1;
-  const responses = [];
- 
-  
-
-  // Make a request for each page of items
-  for (let i = 1; i <= totalPages; i++) {
-    currentUrl += `&page=${i}&language=en-US`;
-     const response = await fetch(currentUrl);
-    const data = await response.json();
-    responses.push(data.results);
-    
-  }
-
-  // Combine the results from all pages into a single array
-  let items = responses.flat();
-  items = items.slice(0, 24);
-  return items;
-}
-
-
-async function fetchItemById(currentUrl){
-  const response = await fetch(currentUrl);
-  const data = await response.json();
-  console.log(data)
-  return data;
-}
-
 
 // Call the function inside an async function
 (async function () {
-  const items = await fetchAllItems(apiKey,trendingTvShowsUrl,2); // Fetch 24 items from first two pages
-  SetTopArray(items);
-
-})();
-
-(async function () {
-  const items = await fetchAllItems(apiKey,popularUrl,2); 
-  SetFetchArray(items);
-})();
-
-
-(async function () {
-  const items = await fetchAllItems(apiKey,trendingMovieUrl,2); 
-  SetDiscoverArray(items);
+  const trendingShows = await fetchAllItems(apiKey,trendingTvShowsUrl,2); // Fetch 24 items from first two pages
+  SetTopArray(trendingShows);
+  const popularMovies = await fetchAllItems(apiKey,popularUrl,2); 
+  SetFetchArray(popularMovies);
+  const trendingMovies = await fetchAllItems(apiKey,trendingMovieUrl,2); 
+  SetDiscoverArray(trendingMovies);
 })();
 
 
-(async function () {
-  const items = await fetchItemById(batmanUrl); 
-  SetRandomArray(items);
-})();
+
+// (async function () {
+//   const items = await fetchItemById(batmanUrl); 
+//   SetRandomArray(items);
+// })();
 
 
   function handleResize() {

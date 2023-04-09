@@ -6,7 +6,7 @@
   
     let glide;
  
-
+export let array;
 
   
     onMount(() => {
