@@ -2,13 +2,9 @@
     import { onMount } from 'svelte';
     import Glide from '@glidejs/glide';
   import CarouselSlide from './CarouselSlide.svelte';
-  import { randomArray, slides } from '../store/stores';
+  import { slides } from '../store/stores';
   
     let glide;
- 
-export let array;
-
-  
     onMount(() => {
 
 

@@ -194,7 +194,7 @@ export  const slides = [
  "id" : "299536",
  "original_title": "Avengers: Infinity War",
     "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.","release_date": "2018-04-25",
-    "vote_average": 8.263,
+    "vote_average": 8.2,
     "runtime": 149,
     "genres": [
       {
@@ -236,7 +236,7 @@ export  const slides = [
 "release_date": "2018-12-14",
 "revenue": 375540831,
 "runtime": 117,
-"vote_average": 8.406,
+"vote_average": 8.4,
 
 },
 
@@ -244,9 +244,6 @@ export  const slides = [
 ];
 
   export const screenSize = writable(window.innerWidth);
-  export let fetchArray = writable([])
-  export let topArray = writable([])
-  export let discoverArray = writable([])
 
   
  export let breakPoints = {
@@ -258,38 +255,11 @@ export  const slides = [
 }
 
 
-export let randomArray = writable([]);
-
-
-export function SetRandomArray(data){
-//   const randomItems = [];
-// while (randomItems.length < 4) {
-//   const randomIndex = Math.floor(Math.random() * data.length);
-//   const randomItem = data[randomIndex];
-//   if (!randomItems.includes(randomItem)) {
-//     randomItems.push(randomItem);
-//   }
-
-// }
-randomArray.update(item=>[...item,data]);
-
-}
-
-export function SetFetchArray(data){
-fetchArray.set(data);
-}
-
-export function SetTopArray(data){
-  topArray.set(data);
-  }
 
 
 
 
-  
-  export function SetDiscoverArray(data){
-    discoverArray.set(data);
-  }
+
   
 
 

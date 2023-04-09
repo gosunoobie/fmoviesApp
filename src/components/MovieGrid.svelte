@@ -1,17 +1,29 @@
 <script>
-  import { slides } from "../store/stores";
+  import { apiKey, fetchAllItems } from "../store/stores";
 
-  export let array;
+  export let currentUrl;
+  const pages = 2;
+
   import MovieComponent from "./MovieComponent.svelte";
 
+let promise = fetchAllItems(apiKey,currentUrl,2);
+
+
 </script>
+{#await promise}
+<p>...loading</p>
+
+{:then items}
 <section class="movie-grid-container">
 
-    {#each array as item}
+    {#each items as item}
     <MovieComponent movie= {item}/>
     {/each}
 </section>
 
+{:catch error}
+<p>error</p>
+{/await}
 <style>
 
     
