@@ -5,6 +5,15 @@
   import Carousel from './components/Carousel.svelte'
   import Recommendations from './components/Recommendations.svelte';
   import MovieGrid from './components/MovieGrid.svelte';
+ // change this fetch to axios
+
+ // make routing available
+
+ // use {#await promise} 
+
+ //use debounce 
+
+
   const apiKey = 'c5991897d88bb42408fd5d87948090aa';
  
   const topRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`;
@@ -17,7 +26,7 @@
   const batmanUrl =`https://api.themoviedb.org/3/movie/414906?api_key=${apiKey}&language=en-US`
 
 
-  
+
 async function fetchAllItems(apiKey,currentUrl,pageCount) {
   const totalPages = pageCount || 1;
   const responses = [];
